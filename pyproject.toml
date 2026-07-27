@@ -11,8 +11,8 @@ requires-python = ">=3.13"
 
 dependencies = [
     "ruff (>=0.16.0,<0.17.0)",
-    "fastapi (>=0.140.7,<0.141.0)",
-    "uvicorn (>=0.51.0,<0.52.0)"
+    "uvicorn (>=0.51.0,<0.52.0)",
+    "fastapi[standard] (>=0.140.7,<0.141.0)"
 ]
 
 [build-system]
