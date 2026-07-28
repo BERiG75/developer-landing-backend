@@ -1,6 +1,7 @@
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from .constants import APP_VERSION, APP_NAME, APP_DESCRIPTION
+from app.core.constants import APP_VERSION, APP_NAME, APP_DESCRIPTION
+from app.common.enums import LogLevel
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -16,6 +17,10 @@ class Settings(BaseSettings):
 
     app_host: str = Field(default="0.0.0.0")
     app_port: int = Field(default=80)
+
+    log_level: LogLevel = Field(default=LogLevel.INFO)
+    log_max_bytes: int = Field(default=5 * 1024 * 1024)
+    log_backup_count: int = Field(default=5)
 
     openai_api_key: str = Field(default="")
 
