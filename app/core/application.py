@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.lifespan import lifespan
+from app.middleware.logging import LoggingMiddleware
 
 def create_application() -> FastAPI:
     application = FastAPI(
@@ -15,6 +16,7 @@ def create_application() -> FastAPI:
         lifespan=lifespan
     )
 
+    application.add_middleware(LoggingMiddleware,)
     application.include_router(api_router)
 
     return application
