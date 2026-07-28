@@ -1,18 +1,14 @@
 from fastapi import FastAPI
 
 from app.api.router import api_router
-from app.core.constants import (
-    APP_DESCRIPTION,
-    APP_TITLE,
-    APP_VERSION,
-)
+from app.core.config import settings
 
 
 def create_application() -> FastAPI:
     application = FastAPI(
-        title=APP_TITLE,
-        description=APP_DESCRIPTION,
-        version=APP_VERSION,
+        title=settings.app_name,
+        description=settings.app_description,
+        version=settings.app_version,
         docs_url="/docs",
         redoc_url="/redoc",
         openapi_url="/openapi.json",

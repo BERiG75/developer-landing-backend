@@ -1,6 +1,7 @@
 from typing import Final
 
 APP_TITLE: Final = "Developer Landing Backend API"
+APP_NAME: Final = "Developer Landing Backend"
 
 APP_DESCRIPTION: Final = (
     "Backend service for developer landing page with AI integration."
